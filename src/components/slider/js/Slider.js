@@ -8,6 +8,9 @@ import chevronDown from '../../../common/img/chevron-down.png';
 import '../css/Slider.css'
 
 class Slider extends React.Component {
+  state = {
+    automaticSlide: false
+  };
 
   initSlider = () => {
     const slider = ammo.select(`.slider[data-id="${this.props.id}"]`);
@@ -36,80 +39,74 @@ class Slider extends React.Component {
     slider.style('top', (el, val) => `${val - topOffset}px`);
   };
 
-  handleSlide = (event, direction) => {
+  handleSlide = (event, id) => {
     event.preventDefault();
-    const slider = ammo.select(`.slider[data-id="${this.props.id}"]`);
+    const slider = ammo.select(`.slider[data-id="${id || this.props.id}"]`);
     let sliderItems = ammo.selectAll('.item', slider.get());
     let activeItemIndex = sliderItems.index('active');
     let activeItem = sliderItems.eq(activeItemIndex);
 
-    if ( direction === 'up' ) {
-      const beforeItems = sliderItems.filter('before-item');
-      const targetItem = beforeItems.eq(0);
+    if ( ! activeItem || ! activeItem.classList.contains('active') ) {
+      this.setState({ automaticSlide: false });
+      return false;
+    }
 
-      targetItem.querySelector('img').setAttribute('src', activeItem.querySelector('img').getAttribute('src'));
-      targetItem.querySelector('img').setAttribute('alt', activeItem.querySelector('img').getAttribute('alt'));
-      targetItem.querySelector('.label').innerHTML = activeItem.querySelector('.label').innerHTML;
+    const beforeItems = sliderItems.filter('before-item');
+    const targetItem = beforeItems.eq(0);
 
-      const topOffset = targetItem.clientHeight;
-      const targetItemClone = targetItem.cloneNode(true);
+    activeItem.classList.remove('active');
+    const targetItemClone = targetItem.cloneNode(true);
+    targetItemClone.querySelector('img').setAttribute('src', activeItem.querySelector('img').getAttribute('src'));
+    targetItemClone.querySelector('img').setAttribute('alt', activeItem.querySelector('img').getAttribute('alt'));
+    targetItemClone.querySelector('.label').innerHTML = activeItem.querySelector('.label').innerHTML;
 
-      slider.style('top', (el, val) => {
-        const prevVal = parseInt(val.replace('px', ''), 10);
-        return `${prevVal - topOffset - 1}px`;
-      });
-
-      activeItem.classList.remove('active');
-      const items = ammo.selectAll('.item', slider.get());
-      items.filter('after-item').eq(0).classList.remove('after-item');
-
+    setTimeout(() => {
       const newItems = ammo.selectAll('.item', slider.get());
-      newItems.eq(activeItemIndex + 1).classList.add('active');
-      newItems.eq(activeItemIndex - 1).classList.add('before-item');
-      targetItemClone.classList.remove('before-item');
-      targetItemClone.classList.add('after-item');
-      slider.get().append(targetItemClone);
+      newItems.eq(activeItemIndex - 1).classList.add('active');
+      slider.get().prepend(targetItemClone);
+      this.setState({ automaticSlide: false });
+    }, 100);
+  };
 
-    } else if ( direction === 'down' ) {
-      const beforeItems = sliderItems.filter('before-item');
-      const targetItem = beforeItems.eq(0);
-      const topOffset = targetItem.clientHeight;
+  handleKeyPress = (event) => {
+    const target = event.target;
+    const controls = target.parentNode;
+    let id;
 
-      activeItem.classList.remove('active');
-      const targetItemClone = targetItem.cloneNode(true);
-      targetItemClone.querySelector('img').setAttribute('src', activeItem.querySelector('img').getAttribute('src'));
-      targetItemClone.querySelector('img').setAttribute('alt', activeItem.querySelector('img').getAttribute('alt'));
-      targetItemClone.querySelector('.label').innerHTML = activeItem.querySelector('.label').innerHTML;
+    if ( this.state.automaticSlide ) {
+      return false;
+    }
 
-      setTimeout(() => {
-        const newItems = ammo.selectAll('.item', slider.get());
-        newItems.eq(activeItemIndex - 1).classList.add('active');
-        slider.get().prepend(targetItemClone)
-      }, 100);
+    if ( event.key !== 'w' && event.key !== 's' && event.key !== 'ArrowUp' && event.key !== 'ArrowDown' ) {
+      return false;
+    }
+
+    this.setState({ automaticSlide: true });
+
+    if ( event.key === 'w' || event.key === 's' ) {
+      id = ammo.select('.controls.left-player').get().querySelector('.slider.controls').getAttribute('data-id');
+      return this.handleSlide(event, id);
+    }
+
+    if ( event.key === 'ArrowUp' || event.key === 'ArrowDown' ) {
+      id = ammo.select('.controls.right-player').get().querySelector('.slider.controls').getAttribute('data-id');
+      return this.handleSlide(event, id);
     }
   };
 
   componentDidMount() {
     if ( this.props.hasControls ) {
       this.initSlider();
-
-      const slider = ammo.select(`.slider[data-id="${this.props.id}"]`);
-      const component = slider.get().closest('.component.slider');
-      const triggerUp = component.querySelector('.trigger.slide-up');
-
-      ammo.poll((resolve) => {
-        // triggerUp.click();
-        resolve(true);
-      }, () => {}, 150);
     }
+    window.addEventListener('keydown', this.handleKeyPress);
   };
 
   render() {
     return (
-      <div className="component slider">
+      <div className="component slider" data-has-controls={this.props.hasControls}>
 
         {this.props.hasControls && (
-          <button className="trigger slide-up" onClick={(e) => this.handleSlide(e, 'up')}>
+          <button className="trigger slide-up" onClick={(e) => this.handleSlide(e)}>
             <img src={chevronUp} alt="up"/>
           </button>
         )}
@@ -136,7 +133,7 @@ class Slider extends React.Component {
         </ul>
 
         {this.props.hasControls && (
-          <button className="trigger slide-down" onClick={(e) => this.handleSlide(e, 'down')}>
+          <button className="trigger slide-down" onClick={(e) => this.handleSlide(e)}>
             <img src={chevronDown} alt="down"/>
           </button>
         )}
