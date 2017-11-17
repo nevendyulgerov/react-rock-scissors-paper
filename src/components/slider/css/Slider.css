@@ -1,0 +1,87 @@
+
+.component.slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.component.slider .trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 20;
+  text-align: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  box-shadow: 0 3px 12px 0 rgba(0,0,0,0.2),0 2px 12px 0 rgba(0,0,0,0.19);
+  background-color: #b3c100;
+  cursor: pointer;
+}
+
+.component.slider .trigger img {
+ pointer-events: none;
+}
+
+.component.slider .trigger.slide-up {
+  top: 20px;
+}
+
+.component.slider .trigger.slide-down {
+  bottom: 20px;
+}
+
+.component.slider .slider.controls {
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.component.slider .slider.controls .item {
+  height: 33.33vh;
+  background-color: #34675c;
+  border-bottom: 1px solid #324851;
+  color: #efefef;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.component.slider .slider.controls .item:last-child {
+  border: none;
+}
+
+.component.slider .slider.controls .item.active {
+  background-color: #123123;
+  border-top: 1px solid #b3c100;
+  border-bottom: 1px solid #b3c100;
+  box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  transition: all 0.15s ease-in-out;
+}
+
+.component.slider .slider.controls .item.active .label {
+  font-size: 34px;
+  font-size: 1.8vw;
+  transition: all 0.3s ease-in-out;
+}
+
+.component.slider .slider.controls .item .image {
+  text-align: center;
+  padding: 10px;
+  pointer-events: none;
+}
+
+.component.slider .slider.controls .item .label {
+  font-size: 32px;
+  font-weight: 300;
+  text-align: center;
+  display: block;
+  pointer-events: none;
+}
