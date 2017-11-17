@@ -92,10 +92,6 @@ class GameInterface extends React.Component {
         <Slider name="controls" hasControls={true} id={uuid()}/>
       </div>
 
-      <div className="controls right-player computer">
-        <Slider name="controls" hasControls={true} id={uuid()}/>
-      </div>
-
       <div className="center-screen">
         <div className="default-screen active">
           <div className="game-title">
@@ -134,6 +130,10 @@ class GameInterface extends React.Component {
           />
         </div>
         <button className="trigger new-match" onClick={(e) => this.handleNewMatch(e)}>{this.props.inGame ? 'Playing...' : 'New Match'}</button>
+      </div>
+
+      <div className="controls right-player computer">
+        <Slider name="controls" hasControls={true} id={uuid()}/>
       </div>
 
     </div>
