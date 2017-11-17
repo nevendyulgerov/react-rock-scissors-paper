@@ -1,5 +1,5 @@
 # Rock - Scissors - Paper
-A js game that allows you to play the game Rock - Scissors - Paper against a friend or the computer.
+A JavaScript version of the game Rock - Scissors - Paper. You can play against a friend or the computer.
 
 ## Requirements
 * npm
