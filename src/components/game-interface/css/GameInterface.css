@@ -22,6 +22,12 @@
   height: 100%;
 }
 
+.component.game-interface .controls.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  transition: all 0.15s ease-in-out;
+}
+
 .component.game-interface .controls.left-player {
   left: 0;
   background-color: #324851;
@@ -30,11 +36,6 @@
 .component.game-interface .controls.right-player {
   right: 0;
   background-color: #324851;
-}
-
-.component.game-interface .controls.disabled {
-  opacity: 0.5;
-  transition: all 0.15s ease-in-out;
 }
 
 .component.game-interface .center-screen {
