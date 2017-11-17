@@ -10,11 +10,13 @@
   pointer-events: none;
   width: 1240px;
   max-width: calc(100% - 100px);
+  min-width: 1100px;
   height: calc(100vh - 100px);
   overflow: hidden;
   border-radius: 4px;
   transition: all 0.15s ease-in-out;
   box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  overflow-x: hidden;
 }
 
 .component.game.active {
