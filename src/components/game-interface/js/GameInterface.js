@@ -127,9 +127,10 @@ class GameInterface extends React.Component {
             defaultChecked={this.props.playAgainstComputer}
             disabled={this.props.inGame ? 'disabled="disabled"' : ''}
             onChange={(e) => this.props.toggleComputer(e)}
+            title="Toggle play-against-computer mode"
           />
         </div>
-        <button className="trigger new-match" onClick={(e) => this.handleNewMatch(e)}>{this.props.inGame ? 'Playing...' : 'New Match'}</button>
+        <button className="trigger new-match" onClick={(e) => this.handleNewMatch(e)} title="Play a new match">{this.props.inGame ? 'Playing...' : 'New Match'}</button>
       </div>
 
       <div className="controls right-player computer">

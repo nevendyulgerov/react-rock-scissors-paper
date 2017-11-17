@@ -65,7 +65,7 @@ class Slider extends React.Component {
       newItems.eq(activeItemIndex - 1).classList.add('active');
       slider.get().prepend(targetItemClone);
       this.setState({ automaticSlide: false });
-    }, 100);
+    }, 50);
   };
 
   handleKeyPress = (event) => {
@@ -106,7 +106,7 @@ class Slider extends React.Component {
       <div className="component slider" data-has-controls={this.props.hasControls}>
 
         {this.props.hasControls && (
-          <button className="trigger slide-up" onClick={(e) => this.handleSlide(e)}>
+          <button className="trigger slide-up" onClick={(e) => this.handleSlide(e)} title="Slide up">
             <img src={chevronUp} alt="up"/>
           </button>
         )}
@@ -133,7 +133,7 @@ class Slider extends React.Component {
         </ul>
 
         {this.props.hasControls && (
-          <button className="trigger slide-down" onClick={(e) => this.handleSlide(e)}>
+          <button className="trigger slide-down" onClick={(e) => this.handleSlide(e)} title="Slide down">
             <img src={chevronDown} alt="down"/>
           </button>
         )}

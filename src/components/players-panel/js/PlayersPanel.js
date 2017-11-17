@@ -25,7 +25,7 @@ class PlayersPanel extends React.Component {
       </div>
 
       <div className="button-group">
-        <button className="trigger toggle-scoreboard" onClick={(e) => this.toggleScoreBoard(e)}>Scoreboard</button>
+        <button className="trigger toggle-scoreboard" onClick={(e) => this.toggleScoreBoard(e)} title="Toggle scoreboard">Scoreboard</button>
       </div>
 
       <div className="right-player">

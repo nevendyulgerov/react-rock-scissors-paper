@@ -53,7 +53,7 @@ const Scoreboard = props => (
         </div>
       </div>
 
-      <button className="trigger clear-scoreboard" onClick={(e) => props.clearData(e)}>Clear</button>
+      <button className="trigger clear-scoreboard" onClick={(e) => props.clearData(e)} title="Clear scoreboard">Clear</button>
 
     </div>
   </div>
