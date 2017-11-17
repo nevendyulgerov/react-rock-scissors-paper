@@ -8,9 +8,6 @@ import chevronDown from '../../../common/img/chevron-down.png';
 import '../css/Slider.css'
 
 class Slider extends React.Component {
-  state = {
-    automaticSlide: false
-  };
 
   initSlider = () => {
     const slider = ammo.select(`.slider[data-id="${this.props.id}"]`);
@@ -47,7 +44,6 @@ class Slider extends React.Component {
     let activeItem = sliderItems.eq(activeItemIndex);
 
     if ( ! activeItem || ! activeItem.classList.contains('active') ) {
-      this.setState({ automaticSlide: false });
       return false;
     }
 
@@ -64,18 +60,13 @@ class Slider extends React.Component {
       const newItems = ammo.selectAll('.item', slider.get());
       newItems.eq(activeItemIndex - 1).classList.add('active');
       slider.get().prepend(targetItemClone);
-      this.setState({ automaticSlide: false });
-    }, 50);
+    }, 30);
   };
 
   handleKeyPress = (event, buffer) => {
     const target = event.target;
     const controls = target.parentNode;
     let id;
-
-    if ( this.state.automaticSlide ) {
-      return false;
-    }
 
     if ( event.key !== 'w' &&
       event.key !== 's' &&
@@ -84,19 +75,26 @@ class Slider extends React.Component {
       return false;
     }
 
-    this.setState({ automaticSlide: true });
-    buffer('handle-keypress', 150, () => {
+    const isLeftPlayerKey = event.key === 'w' || event.key === 's';
+    const isRightPlayerKey = event.key === 'ArrowUp' || event.key === 'ArrowDown';
 
-      if ( event.key === 'w' || event.key === 's' ) {
+    if ( isLeftPlayerKey ) {
+      return buffer('handle-keypress-left-player', 150, () => {
         id = ammo.select('.controls.left-player').get().querySelector('.slider.controls').getAttribute('data-id');
         return this.handleSlide(event, id);
-      }
+      });
+    }
 
-      if ( event.key === 'ArrowUp' || event.key === 'ArrowDown' ) {
+    if ( this.props.playAgainstComputer && this.props.inGame ) {
+      return false;
+    }
+
+    if ( isRightPlayerKey ) {
+      return buffer('handle-keypress-right-player', 150, () => {
         id = ammo.select('.controls.right-player').get().querySelector('.slider.controls').getAttribute('data-id');
         return this.handleSlide(event, id);
-      }
-    });
+      });
+    }
   };
 
   componentDidMount() {
