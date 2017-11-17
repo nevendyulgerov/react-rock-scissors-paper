@@ -121,6 +121,11 @@ class Game extends React.Component {
 
     this.setState({ inGame: true });
 
+    const scoreboard = ammo.select('.scoreboard').get();
+    if ( scoreboard.classList.contains('active') ) {
+      scoreboard.classList.remove('active');
+    }
+
     if ( this.state.playAgainstComputer ) {
       const trigger = ammo.select('.controls.right-player .trigger.slide-down').get();
       ammo.select('.controls.right-player').get().classList.add('disabled');
