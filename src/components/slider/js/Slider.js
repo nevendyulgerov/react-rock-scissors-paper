@@ -55,15 +55,17 @@ class Slider extends React.Component {
     const targetItem = beforeItems.eq(0);
 
     activeItem.classList.remove('active');
-    const newItems = ammo.selectAll('.item', slider.get());
-    newItems.eq(activeItemIndex - 1).classList.add('active');
     const targetItemClone = targetItem.cloneNode(true);
     targetItemClone.querySelector('img').setAttribute('src', activeItem.querySelector('img').getAttribute('src'));
     targetItemClone.querySelector('img').setAttribute('alt', activeItem.querySelector('img').getAttribute('alt'));
     targetItemClone.querySelector('.label').innerHTML = activeItem.querySelector('.label').innerHTML;
 
-    slider.get().prepend(targetItemClone);
-    this.setState({ automaticSlide: false });
+    setTimeout(() => {
+      const newItems = ammo.selectAll('.item', slider.get());
+      newItems.eq(activeItemIndex - 1).classList.add('active');
+      slider.get().prepend(targetItemClone);
+      this.setState({ automaticSlide: false });
+    }, 50);
   };
 
   handleKeyPress = (event) => {
