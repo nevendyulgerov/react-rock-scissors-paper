@@ -1,5 +1,5 @@
 # Rock - Scissors - Paper
-A JavaScript version of the game Rock - Scissors - Paper. You can play against a friend or the computer. When playing against a friend, you can use the 'W' and 'S' keys to slide up and down the left player's slider. To slide up/down the right player's slider, use ArrowUp and ArrowDown keys.
+A JavaScript version of the game Rock - Scissors - Paper. You can play against a friend or the computer. When playing against a friend, you can use the 'W' and 'S' keys to slide up/down the left player's slider. To slide up/down the right player's slider, use ArrowUp and ArrowDown keys.
 
 ## Requirements
 * npm
