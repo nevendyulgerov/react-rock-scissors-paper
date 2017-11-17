@@ -1,0 +1,92 @@
+
+.component.scoreboard {
+  position: absolute;
+  width: calc(100% - 360px);
+  left: 180px;
+  top: -200px;
+  height: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #b7b8b6;
+  z-index: 11;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16),0 2px 3px 0 rgba(239,239,239,0.12);
+  transition: all 0.3s ease-in-out;
+}
+
+.component.scoreboard.active {
+  top: 100px;
+  transition: all 0.3s ease-in-out;
+}
+
+.component.scoreboard .score {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid #123123;
+}
+
+.component.scoreboard .score .score-index {
+  padding: 0 20px 0 0;
+}
+
+.component.scoreboard .score .left-player {
+  padding: 0 20px 0 0;
+}
+
+.component.scoreboard .score .right-player {
+  position: absolute;
+  right: 20px;
+}
+
+.component.scoreboard .total {
+  position: relative;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  padding: 10px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(216, 216, 216);
+  border-top: 1px solid #123123;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.component.scoreboard .total .info {
+  padding: 10px;
+}
+
+.component.game .trigger.clear-scoreboard {
+  padding: 5px 20px;
+  font-size: 20px;
+  float: right;
+  margin: 0 10px 5px 0;
+  text-transform: uppercase;
+  background-color: #123123;
+  color: #fff;
+  border-radius: 2px;
+  font-weight: 300;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16),0 2px 3px 0 rgba(239,239,239,0.12);
+  transition: all 0.15s ease-in-out;
+}
+
+.component.game .players .trigger.clear-scoreboard.disabled {
+  background-color: rgb(156, 156, 156);
+  color: #333;
+  pointer-events: none;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.component.game .players .trigger.clear-scoreboard:hover {
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  transition: all 0.15s ease-in-out;
+}
+
+.component.game .players .trigger.clear-scoreboard:focus {
+  border: none;
+  transition: all 0.15s ease-in-out;
+}
