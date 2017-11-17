@@ -122,11 +122,12 @@ class Game extends React.Component {
     this.setState({ inGame: true });
 
     if ( this.state.playAgainstComputer ) {
-      const triggerUp = ammo.select('.controls.right-player .trigger.slide-down').get();
+      const trigger = ammo.select('.controls.right-player .trigger.slide-down').get();
+      ammo.select('.controls.right-player').get().classList.add('disabled');
       let interval = this.props.computerPollingInterval;
 
       ammo.poll((resolve) => {
-        this.state.inGame && triggerUp.click();
+        this.state.inGame && trigger.click();
         resolve(this.state.inGame);
       }, () => {
 
@@ -159,6 +160,7 @@ class Game extends React.Component {
       ammo.select('.trigger.clear-scoreboard', component).get().classList.remove('disabled');
       ammo.select('.in-game-interface', component).get().classList.remove('active');
       ammo.select('.winner-box', component).get().classList.add('active');
+      ammo.select('.controls.right-player').get().classList.remove('disabled');
 
       // update state
       this.setState((state) => {
