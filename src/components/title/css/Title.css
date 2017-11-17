@@ -1,0 +1,84 @@
+
+.component.title {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+}
+
+.component.title .title-items {
+  position: absolute;
+  pointer-events: none;
+  z-index: 40;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+  list-style-type: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.component.title .title-items .item {
+  display: flex;
+  opacity: 0;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 0 100px 0;
+  padding: 10px 20px;
+  width: 320px;
+  height: 120px;
+  border-radius: 2px;
+  background-color: #b3c100;
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  transition: all 0.5s ease-in-out;
+}
+
+.component.title .title-items .item.fade-in {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.component.title .title-items .item.fade-out {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.component.title .title-items .item:first-child {
+  margin-top: 0;
+}
+
+.component.title .title-items .item:last-child {
+  margin-bottom: 0;
+}
+
+.component.title .title-items .item .image {
+  display: inline-block;
+  width: 120px;
+  margin: 0 10px 0 0;
+}
+
+.component.title .title-items .item .image img {
+  width: 100%;
+  min-width: 60px;
+  height: auto;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.component.title .title-items .item .image img[alt="scissors"] {
+  min-width: 100px;
+}
+
+.component.title .title-items .item .label {
+  display: inline-block;
+  text-align: center;
+  font-size: 52px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #324851;
+  text-shadow: 2px 1px 1px rgba(0,0,0,0.3);
+}
