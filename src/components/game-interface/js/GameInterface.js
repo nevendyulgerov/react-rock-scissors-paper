@@ -143,6 +143,7 @@ class GameInterface extends React.Component {
           hasControls={true}
           id={uuid()}
           playAgainstComputer={this.props.playAgainstComputer}
+          inGame={this.props.inGame}
         />
       </div>
 
