@@ -89,7 +89,11 @@ class GameInterface extends React.Component {
     <div className="component game-interface" style={{backgroundImage: `url(${texture})`}}>
 
       <div className="controls left-player">
-        <Slider name="controls" hasControls={true} id={uuid()}/>
+        <Slider
+          name="controls"
+          hasControls={true} id={uuid()}
+          playAgainstComputer={this.props.playAgainstComputer}
+        />
       </div>
 
       <div className="center-screen">
@@ -134,7 +138,12 @@ class GameInterface extends React.Component {
       </div>
 
       <div className="controls right-player computer">
-        <Slider name="controls" hasControls={true} id={uuid()}/>
+        <Slider
+          name="controls"
+          hasControls={true}
+          id={uuid()}
+          playAgainstComputer={this.props.playAgainstComputer}
+        />
       </div>
 
     </div>
