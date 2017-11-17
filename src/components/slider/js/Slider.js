@@ -68,7 +68,7 @@ class Slider extends React.Component {
     }, 50);
   };
 
-  handleKeyPress = (event) => {
+  handleKeyPress = (event, buffer) => {
     const target = event.target;
     const controls = target.parentNode;
     let id;
@@ -77,28 +77,34 @@ class Slider extends React.Component {
       return false;
     }
 
-    if ( event.key !== 'w' && event.key !== 's' && event.key !== 'ArrowUp' && event.key !== 'ArrowDown' ) {
+    if ( event.key !== 'w' &&
+      event.key !== 's' &&
+      event.key !== 'ArrowUp' &&
+      event.key !== 'ArrowDown' ) {
       return false;
     }
 
     this.setState({ automaticSlide: true });
+    buffer('handle-keypress', 150, () => {
 
-    if ( event.key === 'w' || event.key === 's' ) {
-      id = ammo.select('.controls.left-player').get().querySelector('.slider.controls').getAttribute('data-id');
-      return this.handleSlide(event, id);
-    }
+      if ( event.key === 'w' || event.key === 's' ) {
+        id = ammo.select('.controls.left-player').get().querySelector('.slider.controls').getAttribute('data-id');
+        return this.handleSlide(event, id);
+      }
 
-    if ( event.key === 'ArrowUp' || event.key === 'ArrowDown' ) {
-      id = ammo.select('.controls.right-player').get().querySelector('.slider.controls').getAttribute('data-id');
-      return this.handleSlide(event, id);
-    }
+      if ( event.key === 'ArrowUp' || event.key === 'ArrowDown' ) {
+        id = ammo.select('.controls.right-player').get().querySelector('.slider.controls').getAttribute('data-id');
+        return this.handleSlide(event, id);
+      }
+    });
   };
 
   componentDidMount() {
     if ( this.props.hasControls ) {
       this.initSlider();
     }
-    window.addEventListener('keydown', this.handleKeyPress);
+    const buffer = ammo.buffer();
+    window.addEventListener('keydown', (e) => this.handleKeyPress(e, buffer));
   };
 
   render() {
