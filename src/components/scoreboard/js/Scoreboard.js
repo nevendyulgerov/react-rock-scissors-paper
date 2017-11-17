@@ -16,7 +16,7 @@ const Scoreboard = props => (
             ) : score.winner !== 'draw' ? (
               <span className="lost">Lost, with {score.results.leftPlayerSelection}</span>
             ) : (
-              <span className="draw">Draw</span>
+              <span className="draw">Draw, with {score.results.leftPlayerSelection}</span>
             )}
             </div>
 
@@ -25,7 +25,7 @@ const Scoreboard = props => (
             ) : score.winner !== 'draw' ? (
               <span className="lost">Lost, with {score.results.rightPlayerSelection}</span>
             ) : (
-              <span className="draw">Draw</span>
+              <span className="draw">Draw, with {score.results.rightPlayerSelection}</span>
             )}
             </div>
           </div>
