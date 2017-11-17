@@ -1,0 +1,256 @@
+
+.component.game-interface {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  width: 100%;
+  height: calc(100% - 100px);
+  list-style-type: none;
+  top: 100px;
+  overflow: hidden;
+}
+
+.component.game-interface .controls {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  list-style-type: none;
+  top: 0;
+  width: 180px;
+  height: 100%;
+}
+
+.component.game-interface .controls.left-player {
+  left: 0;
+  background-color: #324851;
+}
+
+.component.game-interface .controls.right-player {
+  right: 0;
+  background-color: #324851;
+}
+
+.component.game-interface .controls.disabled {
+  opacity: 0.5;
+  transition: all 0.15s ease-in-out;
+}
+
+.component.game-interface .center-screen {
+  position: absolute;
+  width: 60vh;
+  height: calc(32vh - 40px);
+  padding: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 0;
+}
+
+.component.game-interface .winner-box {
+  width: 100%;
+  height: auto;
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 1px 1px rgba(0,0,0,0.3);
+  background-color: #123123;
+  border-radius: 2px;
+  text-align: center;
+  pointer-events: none;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16),0 2px 3px 0 rgba(239,239,239,0.12);
+}
+
+.component.game-interface .center-screen .game-controls {
+  padding: 4px 10px 10px 10px;
+  margin: 10px 0 0 0;
+  border-radius: 2px;
+  background-color: #123123;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16),0 2px 3px 0 rgba(239,239,239,0.12);
+  color: #fff;
+  font-weight: 300;
+}
+
+.component.game-interface .center-screen .game-controls .label {
+  font-size: 20px;
+}
+
+.component.game-interface .center-screen .game-controls input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  top: 4px;
+  left: 4px;
+  cursor: pointer;
+}
+
+.component.game-interface .center-screen .default-screen {
+  opacity: 0;
+  display: none;
+  padding: 40px 10px;
+  margin: 10px 0 0 0;
+  border-radius: 2px;
+  background-color: #123123;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16),0 2px 3px 0 rgba(239,239,239,0.12);
+  color: #fff;
+  font-size: 42px;
+  text-align: center;
+  font-weight: 300;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+
+.component.game-interface .center-screen .default-screen .game-title span {
+  display: block;
+  margin: 0 0 20px 0;
+}
+
+.component.game-interface .center-screen .default-screen .game-title span:last-child {
+  margin: 0;
+}
+
+
+.component.game-interface .center-screen .default-screen.active {
+  opacity: 1;
+  display: block;
+  pointer-events: all;
+  transition: all 0.3s ease-in-out;
+}
+
+.component.game-interface .in-game-interface {
+  padding: 50px 25px;
+  opacity: 0;
+  display: none;
+  pointer-events: none;
+  color: #b3c100;
+  background-color: #123123;
+  border-radius: 2px;
+  text-shadow: 2px 1px 1px rgba(0,0,0,0.3);
+  border-bottom: 1px solid #b3c100;
+  overflow: auto;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16),0 2px 3px 0 rgba(239,239,239,0.12);
+}
+
+.component.game-interface .in-game-interface.active {
+  opacity: 1;
+  display: block;
+  pointer-events: all;
+  transition: all 0.3s ease-in-out;
+}
+
+.component.game-interface .in-game-interface .left-player-sync {
+  float: left;
+}
+
+.component.game-interface .in-game-interface .right-player-sync {
+  float: right;
+}
+
+.component.game-interface .in-game-interface .right-player-sync,
+.component.game-interface .in-game-interface .left-player-sync {
+  width: calc(35% - 20px);
+  padding: 10px;
+  text-align: center;
+  margin: 20px 0;
+  border-radius: 2px;
+  background-color: #b3c100;
+}
+
+.component.game-interface .in-game-interface .right-player-sync .label,
+.component.game-interface .in-game-interface .left-player-sync .label {
+  font-size: 32px;
+}
+
+.component.game-interface .in-game-interface .versus-tag {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 15px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+}
+
+.component.game-interface .in-game-interface .timer {
+  font-size: 52px;
+  font-weight: 400;
+  color: #b3c100;
+}
+
+.component.game-interface .in-game-interface .label {
+  color: #fff;
+  font-size: 52px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.component.game-interface .winner-box .label {
+  display: block;
+  color: #fff;
+  font-size: 52px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.component.game-interface .winner-box .winner {
+  display: inline-block;
+  font-size: 42px;
+  color: #b3c100;
+  text-shadow: 2px 1px 1px rgba(0,0,0,0.3);
+  border-bottom: 1px solid #b3c100;
+}
+
+.component.game-interface .winner-box {
+  opacity: 0;
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.component.game-interface .winner-box.active {
+  opacity: 1;
+  display: block;
+  transition: all 0.3s ease-in-out;
+}
+
+.component.game-interface .trigger.new-match {
+  position: absolute;
+  width: 240px;
+  z-index: 15;
+  bottom: -90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 40px;
+  font-size: 26px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  font-weight: 300;
+  color: #b3c100;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16),0 2px 3px 0 rgba(239,239,239,0.12);
+  text-shadow: 2px 1px 1px rgba(0,0,0,0.3);
+  background-color: #123123;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.component.game-interface .trigger.new-match.disabled {
+  background-color: rgb(156, 156, 156);
+  color: #333;
+  transition: all 0.15s ease-in-out;
+  cursor: default;
+}
+
+.component.game-interface .trigger.new-match:hover {
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  transition: all 0.15s ease-in-out;
+}
+
+.component.game-interface .trigger.new-match:focus {
+  border: none;
+  transition: all 0.15s ease-in-out;
+}
