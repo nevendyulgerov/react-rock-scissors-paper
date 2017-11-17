@@ -9,7 +9,7 @@ A JavaScript version of the game Rock - Scissors - Paper. You can play against a
 1. [Download](https://github.com/nevendyulgerov/react-rock-scissors-paper/archive/master.zip) or [Clone](https://github.com/nevendyulgerov/react-rock-scissors-paper.git) the Repository.
 2. Run `npm install` to install the project dependencies.
 3. Run the app using `npm start`.
-4. App becomes available at: `localhost:3000`.
+4. App becomes available at: `http://localhost:3000`.
 
 ## create-react-app
 
