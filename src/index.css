@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: inherit;
+  border: none;
+}
+
+a:active {
+  color: inherit;
+  border: none;
+}
+
+a:focus {
+  color: inherit;
+  border: none;
+}
+
+p {
+  margin: 0;
+}
+
+::selection {
+  background-color: rgba(152, 219, 198, 0.5);
+}
+
+button {
+  border: none;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+button:active {
+  border: 2px solid #324851;
+  transition: all 0.15s ease-in-out;
+}
+
+button:focus {
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.16),0 1px 1px 0 rgba(239,239,239,0.12);
+  transition: all 0.15s ease-in-out;
+}
