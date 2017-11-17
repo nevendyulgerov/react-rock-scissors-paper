@@ -1,0 +1,56 @@
+
+.component.game {
+  position: absolute;
+  opacity: 0;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 15;
+  pointer-events: none;
+  width: 1240px;
+  max-width: calc(100% - 100px);
+  height: calc(100vh - 100px);
+  overflow: hidden;
+  border-radius: 4px;
+  transition: all 0.15s ease-in-out;
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.component.game.active {
+  opacity: 1;
+  pointer-events: all;
+  transition: all 0.15s ease-in-out;
+}
+
+.component.game .lost {
+  color: rgba(217, 30, 24, 0.5);
+  font-weight: 800;
+}
+
+.component.game .won {
+  color: #41A85F;
+  font-weight: 800;
+}
+
+.component.game .draw {
+  color: #333;
+  font-weight: 800;
+}
+
+.component.game .winner {
+  color: #41A85F;
+  font-weight: 800;
+}
+
+.component.game .rock {
+  color: #b7b8b6;
+}
+
+.component.game .scissors {
+  color: #4cb5fb;
+}
+
+.component.game .paper {
+  color: #b3c100;
+}
