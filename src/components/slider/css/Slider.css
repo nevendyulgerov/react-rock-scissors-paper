@@ -17,8 +17,8 @@
   margin: 0 auto;
   z-index: 20;
   text-align: center;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   box-shadow: 0 3px 12px 0 rgba(0,0,0,0.2),0 2px 12px 0 rgba(0,0,0,0.19);
   background-color: #b3c100;
@@ -26,15 +26,16 @@
 }
 
 .component.slider .trigger img {
- pointer-events: none;
+  pointer-events: none;
+  width: 100%;
 }
 
 .component.slider .trigger.slide-up {
-  top: 20px;
+  top: 10px;
 }
 
 .component.slider .trigger.slide-down {
-  bottom: 20px;
+  bottom: 10px;
 }
 
 .component.slider .slider.controls {

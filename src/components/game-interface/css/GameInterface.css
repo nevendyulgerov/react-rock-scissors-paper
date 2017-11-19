@@ -218,10 +218,11 @@
 }
 
 .component.game-interface .trigger.new-match {
-  position: absolute;
+  position: initial;
+  margin: 15px 0 0 0;
   width: 240px;
   z-index: 15;
-  bottom: -90px;
+  bottom: -130px;
   display: flex;
   align-items: center;
   justify-content: center;
