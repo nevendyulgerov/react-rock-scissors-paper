@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import WelcomeScreen from './components/welcome-screen/js/WelcomeScreen';
-import Game from './components/game/js/Game';
+import WelcomeScreen from './components/welcome-screen';
+import Game from './components/game';
 import './App.css';
 
 class App extends React.Component {

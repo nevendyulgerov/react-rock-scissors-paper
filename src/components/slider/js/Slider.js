@@ -1,10 +1,10 @@
 import React from 'react';
-import * as ammo from '../../../common/libs/ammo/js/ammo';
+import ammo from '../../../common/libs/ammo';
 import rock from '../../../common/img/rock.png';
 import scissors from '../../../common/img/scissors.png';
 import paper from '../../../common/img/paper.png';
-import chevronUp from '../../../common/img/chevron-up.png';
-import chevronDown from '../../../common/img/chevron-down.png';
+import chevronUp from '../img/chevron-up.png';
+import chevronDown from '../img/chevron-down.png';
 import '../css/Slider.css'
 
 class Slider extends React.Component {

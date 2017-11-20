@@ -1,7 +1,7 @@
 import React from 'react';
-import * as ammo from '../../../common/libs/ammo/js/ammo';
+import ammo from '../../../common/libs/ammo';
 import texture from '../../../common/img/texture.png';
-import avatar from '../../../common/img/avatar.jpg';
+import avatar from '../img/avatar.jpg';
 import '../css/PlayersPanel.css';
 
 class PlayersPanel extends React.Component {

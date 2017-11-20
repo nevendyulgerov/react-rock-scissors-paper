@@ -1,6 +1,6 @@
 import React from 'react';
-import Slider from '../../../components/slider/js/Slider';
-import * as ammo from '../../../common/libs/ammo/js/ammo';
+import Slider from '../../../components/slider';
+import ammo from '../../../common/libs/ammo';
 import '../css/Title.css';
 
 class Title extends React.Component {

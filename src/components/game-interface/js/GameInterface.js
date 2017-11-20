@@ -1,8 +1,8 @@
 import React from 'react';
 import uuid from 'uuid';
-import Slider from '../../../components/slider/js/Slider';
+import Slider from '../../../components/slider';
 import texture from '../../../common/img/texture.png';
-import * as ammo from '../../../common/libs/ammo/js/ammo';
+import ammo from '../../../common/libs/ammo';
 import '../css/GameInterface.css';
 
 class GameInterface extends React.Component {

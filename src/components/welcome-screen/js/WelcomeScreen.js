@@ -1,6 +1,6 @@
 import React from 'react';
-import * as ammo from '../../../common/libs/ammo/js/ammo';
-import Title from '../../../components/title/js/Title';
+import ammo from '../../../common/libs/ammo';
+import Title from '../../../components/title';
 import '../css/WelcomeScreen.css';
 
 class WelcomeScreen extends React.Component {

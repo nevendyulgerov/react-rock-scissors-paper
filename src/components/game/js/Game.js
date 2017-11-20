@@ -1,8 +1,8 @@
 import React from 'react';
-import * as ammo from '../../../common/libs/ammo/js/ammo';
-import Scoreboard from '../../../components/scoreboard/js/Scoreboard';
-import PlayersPanel from '../../../components/players-panel/js/PlayersPanel';
-import GameInterface from '../../../components/game-interface/js/GameInterface';
+import ammo from '../../../common/libs/ammo';
+import Scoreboard from '../../../components/scoreboard';
+import PlayersPanel from '../../../components/players-panel';
+import GameInterface from '../../../components/game-interface';
 import '../css/Game.css'
 
 class Game extends React.Component {
